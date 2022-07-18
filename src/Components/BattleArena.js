@@ -34,35 +34,36 @@ function BattleArena(props) {
 
   return (
     <div
+      className="flex-container"
       style={{
         backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/007/190/735/original/mma-octagon-arena-stage-background-free-vector.jpg)`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
-
-        // width: "100%",
-        // height: "100%",
       }}
     >
       <PlayerInfo
-        className="player-pokemon"
+        class="flex-item-left"
+        playerName="player-pokemon"
         damage={turn[0]}
         turn={turn}
         announceWinner={getWinner}
         newGame={newGame}
       ></PlayerInfo>
+      <Attack
+        class="flex-item-middle"
+        changeDice={changeDice}
+        newGame={newGame}
+        blockAttack={endGame}
+      ></Attack>
       <PlayerInfo
-        className="opponent-pokemon"
+        class="flex-item-right"
+        playerName="opponent-pokemon"
         damage={turn[1]}
         turn={turn}
         announceWinner={getWinner}
         newGame={newGame}
       ></PlayerInfo>
       {popup ? <Popup closePopup={togglePop} winner={popup} /> : null}
-      <Attack
-        changeDice={changeDice}
-        newGame={newGame}
-        blockAttack={endGame}
-      ></Attack>
     </div>
   );
 }

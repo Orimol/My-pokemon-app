@@ -18,7 +18,7 @@ function PlayerInfo(props) {
   }
 
   function didLost(currentHealth) {
-    if (currentHealth <= 0) props.announceWinner(props.className);
+    if (currentHealth <= 0) props.announceWinner(props.playerName);
   }
 
   useEffect(() => {
@@ -35,11 +35,11 @@ function PlayerInfo(props) {
   */
 
   return (
-    <div className={props.className}>
+    <div className={props.playerName}>
       <h1>
-        <span style={spanstyle}>{props.className}</span>
+        <span style={spanstyle}>{props.playerName}</span>
       </h1>
-      <HealthBar id={props.className} health={health}></HealthBar>
+      <HealthBar id={props.playerName} health={health}></HealthBar>
       <img
         className="image"
         style={imgStyle}

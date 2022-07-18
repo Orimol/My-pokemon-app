@@ -6,7 +6,7 @@ function Dice({ player, points }) {
   };
   return (
     <div>
-      <p className="dice-text" style={style}>
+      <p className="dice-text">
         {player === "p" ? "Player Dice" : "Opponent Dice"}
       </p>
       <div className="dice">
@@ -17,3 +17,4 @@ function Dice({ player, points }) {
 }
 
 export default Dice;
+/*<p className="dice-text" style={style}>*/

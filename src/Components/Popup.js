@@ -3,12 +3,14 @@ import "../Popup.css";
 
 function Popup(props) {
   return (
-    <div className="modal">
-      <div className="modal_content">
-        <span className="close" onClick={props.closePopup}>
-          &times;
-        </span>
-        <h1>{`${props.winner} win!`}</h1>
+    <div className="flex-item-middle">
+      <div className="modal">
+        <div className="modal_content">
+          <span className="close" onClick={props.closePopup}>
+            &times;
+          </span>
+          <h1>{`${props.winner} win!`}</h1>
+        </div>
       </div>
     </div>
   );

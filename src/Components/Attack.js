@@ -11,10 +11,10 @@ function Attack({ changeDice, newGame, blockAttack }) {
   }, [newGame]);
 
   return (
-    <div>
-      <Dice player="p" points={pdice} />
-      <Dice player="o" points={odice} />
-      <button className="button" onClick={rollDice}>
+    <div className="flex-dice-container">
+      <Dice className="flex-dice" player="p" points={pdice} />
+      <Dice className="flex-dice" player="o" points={odice} />
+      <button className="flex-button" onClick={rollDice}>
         Attack!
       </button>
     </div>
@@ -31,3 +31,4 @@ function Attack({ changeDice, newGame, blockAttack }) {
 }
 
 export default Attack;
+/*className="flex-container"*/
