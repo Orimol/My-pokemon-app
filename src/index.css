@@ -38,6 +38,7 @@ health-bar {
   height: 2rem;
   color: green;
   border: black;
+  text-align: right;
 }
 
 /* health-bar {
