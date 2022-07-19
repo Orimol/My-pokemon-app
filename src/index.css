@@ -146,6 +146,11 @@ health-bar {
 .flex-button {
   padding: 2.5%;
   flex: 50%;
-  color: red;
+
   font-weight: bold;
+}
+
+.flex-div {
+  position: fixed;
+  padding: 10%;
 }

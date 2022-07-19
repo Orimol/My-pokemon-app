@@ -7,12 +7,12 @@ function BattleArena(props) {
   const [endGame, setEndGame] = useState(false);
   const [popup, setPopup] = useState(null);
   let currentLoser = null;
-  let blockAttack = false;
+  // let blockAttack = false;
   function changeDice(num) {
     setTurn([num[0], num[1]]);
   }
   function getWinner(loser) {
-    blockAttack = true;
+    // blockAttack = true;
     setEndGame(true);
     if (loser === "player-pokemon") {
       currentLoser = loser;
@@ -42,7 +42,7 @@ function BattleArena(props) {
       }}
     >
       <PlayerInfo
-        class="flex-item-left"
+        className="flex-item-left"
         playerName="player-pokemon"
         damage={turn[0]}
         turn={turn}
@@ -50,20 +50,24 @@ function BattleArena(props) {
         newGame={newGame}
       ></PlayerInfo>
       <Attack
-        class="flex-item-middle"
+        className="flex-item-middle"
         changeDice={changeDice}
         newGame={newGame}
         blockAttack={endGame}
       ></Attack>
       <PlayerInfo
-        class="flex-item-right"
+        className="flex-item-right"
         playerName="opponent-pokemon"
         damage={turn[1]}
         turn={turn}
         announceWinner={getWinner}
         newGame={newGame}
       ></PlayerInfo>
-      {popup ? <Popup closePopup={togglePop} winner={popup} /> : null}
+      {popup ? (
+        <div className="flex-div">
+          {popup ? <Popup closePopup={togglePop} winner={popup} /> : null}
+        </div>
+      ) : null}
     </div>
   );
 }
