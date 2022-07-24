@@ -7,6 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background: url(https://static.vecteezy.com/system/resources/previews/007/190/735/original/mma-octagon-arena-stage-background-free-vector.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -99,7 +108,7 @@ health-bar {
 }
 
 .flex-container {
-  height: 800px;
+  height: 80%;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -110,6 +119,8 @@ health-bar {
   justify-content: space-evenly;
   align-items: center;
   align-content: center;
+  position: absolute;
+  bottom: ;
 }
 
 .flex-item-left {

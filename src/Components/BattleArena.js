@@ -35,11 +35,11 @@ function BattleArena(props) {
   return (
     <div
       className="flex-container"
-      style={{
-        backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/007/190/735/original/mma-octagon-arena-stage-background-free-vector.jpg)`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
-      }}
+      // style={{
+      //   backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/007/190/735/original/mma-octagon-arena-stage-background-free-vector.jpg)`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "100%",
+      // }}
     >
       <PlayerInfo
         className="flex-item-left"
