@@ -24,8 +24,8 @@ const BattleArena = (props) => {
 
   let currentLoser = null;
 
-  const changeDice = (num) => {
-    setTurn([num[0], num[1]]);
+  const changeDice = (damages) => {
+    setTurn([damages[0], damages[1]]); //damaged[userDamage, computerDamage]
   };
   const startNewGame = () => {
     setIsEndGame(false);
