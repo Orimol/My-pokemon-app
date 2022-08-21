@@ -108,7 +108,7 @@ health-bar {
 }
 
 .flex-container {
-  height: 80%;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -120,29 +120,34 @@ health-bar {
   align-items: center;
   align-content: center;
   position: absolute;
-  bottom: ;
+  bottom: auto;
 }
 
 .flex-item-left {
   background-color: transparent;
   padding: 100px;
-  flex: 50%;
+  flex: 10%;
+  order: 0;
+  align-self: flex-end;
 }
 
 .flex-item-right {
   background-color: transparent;
   padding: 100px;
-  flex: 50%;
+  flex: 10%;
+  order: 2;
+  align-self: flex-end;
 }
 
 .flex-item-middle {
   background-color: transparent;
   padding: 100px;
-  flex: 50%;
+  flex: 20%;
+  order: 1;
 }
 
 .flex-dice-container {
-  display: flexbox;
+  flex: 20%;
   flex-wrap: wrap;
   flex-direction: row;
   font-size: 20px;

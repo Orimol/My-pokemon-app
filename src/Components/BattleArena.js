@@ -1,75 +1,77 @@
 import React, { useState } from "react";
 import { PlayerInfo, Attack, Popup } from "./index";
 
-function BattleArena(props) {
-  const [turn, setTurn] = useState([0, 0]);
-  const [newGame, setNewGame] = useState(0);
-  const [endGame, setEndGame] = useState(false);
-  const [popup, setPopup] = useState(null);
+const BattleArena = (props) => {
+  const [damage, setTurn] = useState([0, 0]); //[userDamage, computerDamage]
+  const [newGame, setNewGame] = useState(true);
+  const [isEndGame, setIsEndGame] = useState(false);
+  const [winner, setWinner] = useState(null);
+
+  const players = [
+    {
+      playerName: "User",
+      className: "flex-item-left",
+      damage: damage[0],
+      newGame: newGame,
+    },
+    {
+      playerName: "Computer",
+      className: "flex-item-right",
+      damage: damage[1],
+      newGame: newGame,
+    },
+  ];
+
   let currentLoser = null;
-  // let blockAttack = false;
-  function changeDice(num) {
+
+  const changeDice = (num) => {
     setTurn([num[0], num[1]]);
-  }
-  function getWinner(loser) {
-    // blockAttack = true;
-    setEndGame(true);
-    if (loser === "player-pokemon") {
+  };
+  const startNewGame = () => {
+    setIsEndGame(false);
+    setNewGame(!newGame);
+  };
+  const getWinner = (loser) => {
+    setIsEndGame(true);
+    if (loser === players[0].playerName /*"player-pokemon"*/) {
       currentLoser = loser;
-      setPopup("opponent-pokemon");
+      setWinner(players[1].playerName /*"opponent-pokemon"*/);
     } else if (currentLoser === null) {
-      setPopup("player-pokemon");
+      setWinner(players[0].playerName /*"player-pokemon"*/);
     }
-    setTimeout(newGamef, 2500);
-  }
+    setTimeout(startNewGame, 2500);
+  };
 
-  function newGamef() {
-    setEndGame(false);
-    setNewGame(newGame + 1);
-  }
-
-  function togglePop() {
-    setPopup(null);
-  }
+  const closePopUp = () => {
+    setWinner(null);
+  };
 
   return (
-    <div
-      className="flex-container"
-      // style={{
-      //   backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/007/190/735/original/mma-octagon-arena-stage-background-free-vector.jpg)`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "100%",
-      // }}
-    >
-      <PlayerInfo
-        className="flex-item-left"
-        playerName="player-pokemon"
-        damage={turn[0]}
-        turn={turn}
-        announceWinner={getWinner}
-        newGame={newGame}
-      ></PlayerInfo>
+    <div className="flex-container">
+      {players.map((player, playerIndex) => {
+        return (
+          <PlayerInfo
+            key={playerIndex}
+            player={player}
+            announceWinner={getWinner}
+            newGame={newGame}
+          ></PlayerInfo>
+        );
+      })}
       <Attack
         className="flex-item-middle"
         changeDice={changeDice}
         newGame={newGame}
-        blockAttack={endGame}
+        isEndGame={isEndGame}
+        players={players}
       ></Attack>
-      <PlayerInfo
-        className="flex-item-right"
-        playerName="opponent-pokemon"
-        damage={turn[1]}
-        turn={turn}
-        announceWinner={getWinner}
-        newGame={newGame}
-      ></PlayerInfo>
-      {popup ? (
+      {winner ? (
         <div className="flex-div">
-          {popup ? <Popup closePopup={togglePop} winner={popup} /> : null}
+          <Popup closePopup={closePopUp} winner={winner} />
         </div>
       ) : null}
     </div>
   );
-}
+};
 
 export default BattleArena;

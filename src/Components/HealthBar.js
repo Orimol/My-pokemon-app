@@ -1,6 +1,6 @@
 import React from "react";
 
-function HealthBar(props) {
+const HealthBar = (props) => {
   let style = {
     width: parseInt(props.health) + "%",
     backgroundColor:
@@ -13,6 +13,6 @@ function HealthBar(props) {
       </div>
     </div>
   );
-}
+};
 
 export default HealthBar;
